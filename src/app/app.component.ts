@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from "./components/header/header.component";
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -11,5 +12,5 @@ import { HeaderComponent } from "./components/header/header.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  
+
 }
