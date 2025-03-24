@@ -1,0 +1,15 @@
+a{
+    font-family:"Winky Sans", sans-serif;
+}
+
+p, label{
+    font-family: "Abel", sans-serif;
+}
+
+body{
+    background-image: url('https://i.pinimg.com/1200x/40/e6/a1/40e6a10f2b148e78f47aa8b3801e23e5.jpg' ) ;
+}
+
+form{
+    backdrop-filter: blur(7px);
+}
