@@ -1,5 +1,5 @@
-export interface Post {
-    id: string;
+export interface Viaje {
+    id: number;
     titulo: string;
     texto: string;
     autor: string;
