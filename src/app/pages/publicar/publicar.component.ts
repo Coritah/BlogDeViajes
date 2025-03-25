@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ViajesService } from '../../services/post.service';
 
 @Component({
   selector: 'app-publicar',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class PublicarComponent {
   // meter el sevicio aqui
   router = inject(Router)
+  viajesService = inject(ViajesService);
 
 
   nuevoViajeForm: FormGroup= new FormGroup({
@@ -29,13 +31,13 @@ export class PublicarComponent {
     categoria: new FormControl('', [Validators.required])
   })
   
-  async submitForm() {
-    console.log("Intentando enviar el formulario...");
+ submitForm() {
   
     if (this.nuevoViajeForm.valid) {
       const viajeData = this.nuevoViajeForm.value;
-      console.log("Datos del viaje:", JSON.stringify(viajeData, null, 2));
-      this.router.navigate(['/inicio'])
+      this.viajesService.agregarViaje(viajeData);
+
+      this.router.navigate(['/tupost'])
       // Aquí podrías guardar en localStorage, una variable, o mostrar en pantalla
     } else {
       console.warn("Formulario inválido");
