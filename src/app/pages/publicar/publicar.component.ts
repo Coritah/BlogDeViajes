@@ -36,7 +36,7 @@ export class PublicarComponent {
       const viajeData = this.nuevoViajeForm.value;
       console.log("Datos del viaje:", JSON.stringify(viajeData, null, 2));
       this.router.navigate(['/inicio'])
-      
+      // Aquí podrías guardar en localStorage, una variable, o mostrar en pantalla
     } else {
       console.warn("Formulario inválido");
     }

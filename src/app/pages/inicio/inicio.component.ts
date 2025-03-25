@@ -9,7 +9,5 @@ import { Component, inject } from '@angular/core';
 })
 export class InicioComponent {
 
-
-
 }
 
