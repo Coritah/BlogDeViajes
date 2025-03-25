@@ -8,9 +8,11 @@ import { Viaje } from '../interfaces/interface.datos';
 export class ViajesService {
   private viajes: Viaje [] = [];
 
-  constructor() {
+  constructor() {}
 
+  agregarViaje(viaje: Viaje) {
+    viaje.id = Date.now(); 
+    this.viajes.push(viaje); 
+    console.log("Viaje agregado:", viaje);
   }
-
-
 }
