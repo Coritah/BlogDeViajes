@@ -4,5 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ViajesService {
- 
+  private viajes: any[] = []; 
+
+  constructor() {}
+
+
+  
 }
