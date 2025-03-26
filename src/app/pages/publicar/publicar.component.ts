@@ -36,7 +36,7 @@ export class PublicarComponent {
     if (this.nuevoViajeForm.valid) {
       const viajeData = this.nuevoViajeForm.value;
       this.postService.addPost(viajeData);
-      this.router.navigate(['/tupost']);
+      this.router.navigate(['/tupost', viajeData.id]);
 
       // Aquí podrías guardar en localStorage, una variable, o mostrar en pantalla
     } else {

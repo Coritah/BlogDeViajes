@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { CommonModule } from '@angular/common'; 
 
@@ -9,10 +9,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './tu-post.component.css'
 })
 export class TuPostComponent {
+  @Input() id: string | undefined;
   postService = inject(PostService);
 
-  get last() {
-    return this.postService.getLast();
+  get post(){
+    return this.postService.getById(Number(this.id))
   }
-
 }
+

@@ -43,4 +43,9 @@ export class PostService {
   getLast() {
     return this.posts.length > 0 ? this.posts[this.posts.length - 1] : null;
   }
+
+  getById(id: number): Viaje | undefined{
+    return this.posts.find(p => p.id === id)
+  }
+
 }

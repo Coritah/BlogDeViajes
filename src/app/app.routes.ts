@@ -7,7 +7,7 @@ import { PublicarComponent } from './pages/publicar/publicar.component';
 export const routes: Routes = [
     {path: "", pathMatch:'full', redirectTo: 'inicio'},
     {path:'inicio', component: InicioComponent},
-    {path: 'tupost', component: TuPostComponent},
+    {path: 'tupost/:id', component: TuPostComponent},
     {path: 'publicar', component: PublicarComponent},
     { path: "**", redirectTo: 'inicio' }
 ];
