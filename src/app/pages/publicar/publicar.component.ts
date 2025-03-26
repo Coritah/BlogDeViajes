@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ViajesService } from '../../services/post.service';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-publicar',
@@ -12,7 +12,7 @@ import { ViajesService } from '../../services/post.service';
 export class PublicarComponent {
   // meter el sevicio aqui
   router = inject(Router)
-  viajesService = inject(ViajesService);
+  postService = inject(PostService);
 
 
   nuevoViajeForm: FormGroup= new FormGroup({
@@ -35,7 +35,7 @@ export class PublicarComponent {
   
     if (this.nuevoViajeForm.valid) {
       const viajeData = this.nuevoViajeForm.value;
-      this.viajesService.agregarViaje(viajeData);
+      this.postService.addPost(viajeData);
 
       this.router.navigate(['/tupost'])
       // Aquí podrías guardar en localStorage, una variable, o mostrar en pantalla
