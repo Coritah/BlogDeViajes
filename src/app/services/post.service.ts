@@ -40,4 +40,7 @@ export class PostService {
     return this.posts;
   }
 
+  getLast() {
+    return this.posts.length > 0 ? this.posts[this.posts.length - 1] : null;
+  }
 }

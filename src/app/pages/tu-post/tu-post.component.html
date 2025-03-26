@@ -1,1 +1,22 @@
-<p>tu-post works!</p>
+<div class="container mt-4">
+    <h2>Última Publicación</h2>
+    
+    <ng-container *ngIf="last; else noPost">
+      <div class="card mb-3">
+        <img [src]="last.imagen" class="card-img-top" alt="{{ last.titulo }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ last.titulo }}</h5>
+          <p class="card-text">{{ last.texto }}</p>
+          <p class="card-text">
+            <small class="text-muted">
+              Autor: {{ last.autor }} - Fecha: {{ last.fecha }}
+            </small>
+          </p>
+        </div>
+      </div>
+    </ng-container>
+  
+    <ng-template #noPost>
+      <p>No hay publicaciones aún.</p>
+    </ng-template>
+  </div>

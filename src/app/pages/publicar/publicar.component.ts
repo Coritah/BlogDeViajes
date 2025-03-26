@@ -11,7 +11,7 @@ import { PostService } from '../../services/post.service';
 })
 export class PublicarComponent {
   // meter el sevicio aqui
-  router = inject(Router)
+  router = inject(Router);
   postService = inject(PostService);
 
 
@@ -36,8 +36,8 @@ export class PublicarComponent {
     if (this.nuevoViajeForm.valid) {
       const viajeData = this.nuevoViajeForm.value;
       this.postService.addPost(viajeData);
+      this.router.navigate(['/tupost']);
 
-      this.router.navigate(['/tupost'])
       // Aquí podrías guardar en localStorage, una variable, o mostrar en pantalla
     } else {
       console.warn("Formulario inválido");
