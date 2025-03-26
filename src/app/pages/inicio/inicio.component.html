@@ -1,1 +1,23 @@
-<h2 >Viajes Publicados</h2>
+<h2>Viajes Publicados</h2>
+<div class="container mt-4">
+  <h2>Publicaciones</h2>
+
+  @if (viajes.length === 0) {
+    <div>No hay publicaciones aún.</div>
+  } @else {
+    @for (viaje of viajes; track viaje.id) {
+      <div class="card mb-3">
+        <img [src]="viaje.imagen" class="card-img-top" alt="{{ viaje.titulo }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ viaje.titulo }}</h5>
+          <p class="card-text">{{ viaje.texto }}</p>
+          <p class="card-text">
+            <small class="text-muted">
+              Autor: {{ viaje.autor }} - Fecha: {{ viaje.fecha }}
+            </small>
+          </p>
+        </div>
+      </div>
+    }
+  }
+</div>
