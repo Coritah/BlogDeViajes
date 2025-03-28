@@ -34,11 +34,16 @@ export class PostService {
     viaje.id = Date.now(); 
     this.posts.push(viaje); 
     // console.log("Viaje agregado:", viaje);
-    localStorage.setItem('',JSON.stringify(this.posts)) 
+    localStorage.setItem('posts',JSON.stringify(this.posts)) 
   }
 
   listPosts() {
+    const posts = localStorage.getItem('posts');
+    if (posts) {
+      this.posts = JSON.parse(posts);
+    }
     return this.posts;
+
   }
 
   getLast() {

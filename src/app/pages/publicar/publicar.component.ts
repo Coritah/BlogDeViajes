@@ -38,7 +38,7 @@ export class PublicarComponent {
       this.postService.addPost(viajeData);
       this.router.navigate(['/tupost', viajeData.id]);
 
-      // Aquí podrías guardar en localStorage, una variable, o mostrar en pantalla
+     
     } else {
       console.warn("Formulario inválido");
     }
