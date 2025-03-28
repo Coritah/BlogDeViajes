@@ -27,32 +27,29 @@ export class PostService {
       categoria: 'Playa'
     }];
 
-
-  constructor() {
-    const posts = localStorage.getItem('posts');
-    this.posts = posts ? JSON.parse(posts) : [];
+    constructor() {
+      const posts = localStorage.getItem('posts');
+      this.posts = posts ? JSON.parse(posts) : [];
+    }
+  
+    addPost(viaje: Viaje) {
+      viaje.id = Date.now(); 
+      this.posts.push(viaje); 
+      localStorage.setItem('posts', JSON.stringify(this.posts)); 
+    }
+  
+    listPosts() {
+      const posts = localStorage.getItem('posts');
+      this.posts = posts ? JSON.parse(posts) : this.posts;
+      return this.posts;
+    }
+  
+    getLast() {
+      return this.posts.length > 0 ? this.posts[this.posts.length - 1] : null;
+    }
+  
+    getById(id: number): Viaje | undefined {
+      return this.posts.find(p => p.id === id);
+    }
   }
-
-  addPost(viaje: Viaje) {
-    viaje.id = Date.now(); 
-    this.posts.push(viaje); 
-    // console.log("Viaje agregado:", viaje);
-    localStorage.setItem('posts',JSON.stringify(this.posts)) 
-  }
-
-  listPosts() {
-    const posts = localStorage.getItem('posts');
-    this.posts = posts ? JSON.parse(posts) : this.posts;
-  return this.posts;
-
-  }
-
-  getLast() {
-    return this.posts.length > 0 ? this.posts[this.posts.length - 1] : null;
-  }
-
-  getById(id: number): Viaje | undefined{
-    return this.posts.find(p => p.id === id)
-  }
-
-}
+  
