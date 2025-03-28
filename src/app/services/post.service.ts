@@ -33,7 +33,8 @@ export class PostService {
   addPost(viaje: Viaje) {
     viaje.id = Date.now(); 
     this.posts.push(viaje); 
-    console.log("Viaje agregado:", viaje);
+    // console.log("Viaje agregado:", viaje);
+    localStorage.setItem('',JSON.stringify(this.posts)) 
   }
 
   listPosts() {
