@@ -28,7 +28,10 @@ export class PostService {
     }];
 
 
-  constructor() {}
+  constructor() {
+    const posts = localStorage.getItem('posts');
+    this.posts = posts ? JSON.parse(posts) : [];
+  }
 
   addPost(viaje: Viaje) {
     viaje.id = Date.now(); 
@@ -39,10 +42,8 @@ export class PostService {
 
   listPosts() {
     const posts = localStorage.getItem('posts');
-    if (posts) {
-      this.posts = JSON.parse(posts);
-    }
-    return this.posts;
+    this.posts = posts ? JSON.parse(posts) : this.posts;
+  return this.posts;
 
   }
 
