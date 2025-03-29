@@ -1,13 +1,13 @@
 <div class="container-md d-flex justify-content-center align-items-center vh-100">
   <form [formGroup]="nuevoViajeForm" (ngSubmit)="submitForm()" class="text-dark p-3 rounded w-50 shadow" style="max-height: 90vh; overflow-y: auto;">
     
-    <div class="mb-2">
+    <!-- <div class="mb-2">
       <label for="id" class="form-label">ID:</label>
       <input type="text" id="id" class="form-control" formControlName="id" required>
       @if (checkError('id', 'required')) {
         <p class="error">El ID es obligatorio.</p>
       }
-    </div>
+    </div> -->
 
     <div class="mb-2">
       <label for="titulo" class="form-label">Título:</label>
@@ -37,7 +37,7 @@
       <label for="imagen" class="form-label">Imagen (URL):</label>
       <input type="url" id="imagen" class="form-control" formControlName="imagen" required>
       @if (checkError('imagen', 'required')) {
-        <p class="error">Debes agregar una imagen.</p>
+        <p class="error">Debes agregar una imagen valida ej.https://ejemplo.com/imagen.jpg</p>
       }
     </div>
 

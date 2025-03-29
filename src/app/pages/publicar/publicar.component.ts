@@ -24,7 +24,11 @@ export class PublicarComponent {
   
     autor: new FormControl('', [Validators.required]),
   
-    imagen: new FormControl('',[Validators.required]),
+    imagen: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))/i)
+    ]),
+    
   
     fecha: new FormControl('', [Validators.required]),
     
