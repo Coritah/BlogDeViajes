@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 
 @Component({
@@ -9,14 +9,9 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-router = inject(Router)
-
-   visible = false;
+ 
 
 
-ngOninit(){
-  console.log(this.router.url)
-}
 
 
 }

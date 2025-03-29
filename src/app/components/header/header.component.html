@@ -1,14 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
   <div class="container-fluid">
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">Mi Blog</a>
@@ -16,32 +9,22 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/inicio" routerLinkActive="active"
-            >Inicio</a
-          >
+          <a class="nav-link" routerLink="/inicio" routerLinkActive="active">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/tupost" routerLinkActive="active"
-            >Tu Post</a
-          >
+          <a class="nav-link" routerLink="/tupost" routerLinkActive="active">Tu Post</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/publicar" routerLinkActive="active"
-            >Publicar</a
-          >
+          <a class="nav-link" routerLink="/publicar" routerLinkActive="active">Publicar</a>
         </li>
       </ul>
-      @if (visible) {
-      <form class="d-flex" role="search">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Buscar"
-          aria-label="Buscar"
-        />
+      <form class="d-flex" [hidden]="!visible">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" />
         <button class="btn btn-outline-light" type="submit">Buscar</button>
       </form>
-      }
+      
+      
+
     </div>
   </div>
 </nav>

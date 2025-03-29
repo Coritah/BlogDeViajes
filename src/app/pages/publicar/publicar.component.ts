@@ -43,4 +43,8 @@ export class PublicarComponent {
       console.warn("Formulario inválido");
     }
   }
+
+
+
+  
 }
