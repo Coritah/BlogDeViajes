@@ -1,49 +1,70 @@
 <div class="container-md d-flex justify-content-center align-items-center vh-100">
-    <form [formGroup]="nuevoViajeForm" (ngSubmit)="submitForm()" class="text-dark p-3 rounded w-50 shadow" style="max-height: 90vh; overflow-y: auto;">
-      
-      <div class="mb-2">
-        <label for="id" class="form-label">ID:</label>
-        <input type="text" id="id" class="form-control" formControlName="id" required>
-      </div>
-  
-      <div class="mb-2">
-        <label for="titulo" class="form-label">Título:</label>
-        <input type="text" id="titulo" class="form-control" formControlName="titulo" required>
-      </div>
-  
-      <div class="mb-2">
-        <label for="texto" class="form-label">Texto:</label>
-        <textarea id="texto" class="form-control" formControlName="texto" required></textarea>
-      </div>
-  
-      <div class="mb-2">
-        <label for="autor" class="form-label">Autor:</label>
-        <input type="text" id="autor" class="form-control" formControlName="autor" required>
-      </div>
-  
-      <div class="mb-2">
-        <label for="imagen" class="form-label">Imagen (URL):</label>
-        <input type="url" id="imagen" class="form-control" formControlName="imagen" required>
-      </div>
-  
-      <div class="mb-2">
-        <label for="fecha" class="form-label">Fecha:</label>
-        <input type="date" id="fecha" class="form-control" formControlName="fecha" required>
-      </div>
-  
-      <div class="mb-2">
-        <label for="categoria" class="form-label">Categoría:</label>
-        <select id="categoria" class="form-select" formControlName="categoria" required>
-          <option value="playa">Playa</option>
-          <option value="montana">Montaña</option>
-          <option value="ciudad">Ciudad</option>
-          <option value="rural">Rural</option>
-          <option value="festivales">Festivales</option>
-        </select>
-      </div>
-  
-      <button type="submit" class="btn btn-secondary w-100" [disabled]="!nuevoViajeForm.valid">Enviar</button>
-  
-    </form>
-  </div>
-  
+  <form [formGroup]="nuevoViajeForm" (ngSubmit)="submitForm()" class="text-dark p-3 rounded w-50 shadow" style="max-height: 90vh; overflow-y: auto;">
+    
+    <div class="mb-2">
+      <label for="id" class="form-label">ID:</label>
+      <input type="text" id="id" class="form-control" formControlName="id" required>
+      @if (checkError('id', 'required')) {
+        <p class="error">El ID es obligatorio.</p>
+      }
+    </div>
+
+    <div class="mb-2">
+      <label for="titulo" class="form-label">Título:</label>
+      <input type="text" id="titulo" class="form-control" formControlName="titulo" required>
+      @if (checkError('titulo', 'required')) {
+        <p class="error">El título es obligatorio.</p>
+      }
+    </div>
+
+    <div class="mb-2">
+      <label for="texto" class="form-label">Texto:</label>
+      <textarea id="texto" class="form-control" formControlName="texto" required></textarea>
+      @if (checkError('texto', 'required')) {
+        <p class="error">El texto no puede estar vacío.</p>
+      }
+    </div>
+
+    <div class="mb-2">
+      <label for="autor" class="form-label">Autor:</label>
+      <input type="text" id="autor" class="form-control" formControlName="autor" required>
+      @if (checkError('autor', 'required')) {
+        <p class="error">El autor es obligatorio.</p>
+      }
+    </div>
+
+    <div class="mb-2">
+      <label for="imagen" class="form-label">Imagen (URL):</label>
+      <input type="url" id="imagen" class="form-control" formControlName="imagen" required>
+      @if (checkError('imagen', 'required')) {
+        <p class="error">Debes agregar una imagen.</p>
+      }
+    </div>
+
+    <div class="mb-2">
+      <label for="fecha" class="form-label">Fecha:</label>
+      <input type="date" id="fecha" class="form-control" formControlName="fecha" required>
+      @if (checkError('fecha', 'required')) {
+        <p class="error">La fecha es obligatoria.</p>
+      }
+    </div>
+
+    <div class="mb-2">
+      <label for="categoria" class="form-label">Categoría:</label>
+      <select id="categoria" class="form-select" formControlName="categoria" required>
+        <option value="">Selecciona una categoría</option>
+        <option value="playa">Playa</option>
+        <option value="montana">Montaña</option>
+        <option value="ciudad">Ciudad</option>
+        <option value="rural">Rural</option>
+        <option value="festivales">Festivales</option>
+      </select>
+      @if (checkError('categoria', 'required')) {
+        <p class="error">Debes seleccionar una categoría.</p>
+      }
+    </div>
+
+    <button type="submit" class="btn btn-secondary w-100" [disabled]="!nuevoViajeForm.valid">Enviar</button>
+
+  </form>
+</div>

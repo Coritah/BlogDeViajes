@@ -1,25 +1,30 @@
 <h2>Viajes Publicados</h2>
+
 <div class="container mt-4">
   <h2>Publicaciones</h2>
 
   @if (posts.length === 0) {
-    <div>No hay publicaciones aún.</div>
+    <div class="text-center text-muted">No hay publicaciones aún.</div>
   } @else {
-    @for (post of posts; track post.id) {
-      <a [routerLink]="['/tupost', post.id]" class="text-decoration-none">
-        <div class="card mb-3" style="cursor: pointer;">
-          <img [src]="post.imagen" class="card-img-top" alt="{{ post.titulo }}">
-          <div class="card-body">
-            <h5 class="card-title">{{ post.titulo }}</h5>
-            <p class="card-text">{{ post.texto }}</p>
-            <p class="card-text">
-              <small class="text-muted">
-                Autor: {{ post.autor }} - Fecha: {{ post.fecha }}
-              </small>
-            </p>
-          </div>
+    <div class="row">
+      @for (post of posts; track post.id) {
+        <div class="col-md-4 col-sm-6 col-12 mb-3">
+          <a [routerLink]="['/tupost', post.id]" class="text-decoration-none">
+            <div class="card h-100 shadow-sm" style="cursor: pointer;">
+              <img [src]="post.imagen" class="card-img-top" alt="{{ post.titulo }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ post.titulo }}</h5>
+                <p class="card-text text-truncate">{{ post.texto }}</p>
+                <p class="card-text">
+                  <small class="text-muted">
+                    Autor: {{ post.autor }} - Fecha: {{ post.fecha }}
+                  </small>
+                </p>
+              </div>
+            </div>
+          </a>
         </div>
-      </a>
-    }
+      }
+    </div>
   }
 </div>

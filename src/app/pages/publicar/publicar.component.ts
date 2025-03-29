@@ -45,6 +45,10 @@ export class PublicarComponent {
   }
 
 
-
+  checkError(field: string, errorName: string): boolean {
+    const control = this.nuevoViajeForm.get(field);
+    return control ? control.hasError(errorName) && control.touched : false;
+  }
+  
   
 }
