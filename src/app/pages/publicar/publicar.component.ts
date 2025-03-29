@@ -10,13 +10,13 @@ import { PostService } from '../../services/post.service';
   styleUrl: './publicar.component.css'
 })
 export class PublicarComponent {
-  // meter el sevicio aqui
+
   router = inject(Router);
   postService = inject(PostService);
 
 
   nuevoViajeForm: FormGroup= new FormGroup({
-    id: new FormControl('', [Validators.required]),
+   
   
     titulo: new FormControl('', [Validators.required]),
   
@@ -26,7 +26,7 @@ export class PublicarComponent {
   
     imagen: new FormControl('', [
       Validators.required,
-      Validators.pattern(/(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))/i)
+      Validators.pattern(/^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))$/i)
     ]),
     
   
@@ -36,7 +36,6 @@ export class PublicarComponent {
   })
   
  submitForm() {
-  
     if (this.nuevoViajeForm.valid) {
       const viajeData = this.nuevoViajeForm.value;
       this.postService.addPost(viajeData);
